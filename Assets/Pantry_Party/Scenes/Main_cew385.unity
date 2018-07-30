@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 52183534}
   - component: {fileID: 52183533}
   - component: {fileID: 52183532}
+  - component: {fileID: 52183535}
   m_Layer: 0
   m_Name: Pantry
   m_TagString: Untagged
@@ -201,6 +202,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 52183530}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &52183535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 52183530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114c577c6cfc1415898e4bc6a0fb50e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allIngredients:
+  - {fileID: 1150872452001750, guid: 6091da294a6be479eaf9904de47ec909, type: 2}
+  - {fileID: 1554607837712518, guid: 13479d48d54244de28af40f3058877fe, type: 2}
+  - {fileID: 1196913470227428, guid: a22bc531dcdcb4535842850599d32db3, type: 2}
+  ing1_spawn: {fileID: 99421534}
+  ing2_spawn: {fileID: 791239988}
+  ing3_spawn: {fileID: 1914629512}
 --- !u!1 &99421533
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +242,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 99421533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 52183531}
@@ -710,7 +729,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 791239987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 52183531}
@@ -1164,7 +1183,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1914629511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 0, z: 0}
+  m_LocalPosition: {x: -0.4, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 52183531}
