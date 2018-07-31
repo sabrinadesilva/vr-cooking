@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 65755629264338140}
   - component: {fileID: 54735741995427026}
   - component: {fileID: 114122914313737406}
+  - component: {fileID: 114000990616405552}
+  - component: {fileID: 114298251567085638}
   m_Layer: 0
   m_Name: Temp_Ing_2
   m_TagString: Untagged
@@ -39,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1554607837712518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -111,8 +113,22 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.8, y: 0.8, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000990616405552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554607837712518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1015d4a7d02514e5a9c3eae5d15004d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 0
+  strobeColor: {r: 1, g: 0.9880785, b: 0, a: 1}
+  strobeSpeed: 12
 --- !u!114 &114122914313737406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,5 +140,34 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates: []
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114298251567085638}
+          m_MethodName: PickupOrDrop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &114298251567085638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554607837712518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd2e5fce422f4313822f498966f6b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbed: 0
