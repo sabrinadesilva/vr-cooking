@@ -18,12 +18,12 @@ public class IngredientChecker : MonoBehaviour {
     public int wrongIngredients = 0; // How many wrong ingredients have been thrown
                                      // Will be displayed on the recipe board
 
-    public GameObject[][] pizza;
+    public GameObject[][] pizza = new GameObject[3][];
     public GameObject[] step1 = new GameObject[2];
     public GameObject[] step2 = new GameObject[2];
     public GameObject[] step3 = new GameObject[2];
     [HideInInspector]
-    public int[][] recipeProgress;
+    public int[,] recipeProgress = new int[3,2];
 
 
     private void Awake()
@@ -42,15 +42,15 @@ public class IngredientChecker : MonoBehaviour {
 
     // Later implementation: allow user to select 1 of 2 recipes
 	void Start () {
-
+        //recipeProgress = 
         // Initialize recipe step progress
         // 0 means incomplete, 1 means complete
-        for (int i = 0; i < recipeProgress.Length; i++){
-            recipeProgress[i] = new int[2];
-        }
-        for (int k = 0; k < recipeProgress.Length; k++){
-            for (int j = 0; j < recipeProgress[k].Length; j++){
-                recipeProgress[0][0] = 0;
+        //for (int i = 0; i < 2; i++){
+        //    recipeProgress[i] = new int[2];
+        //}
+        for (int k = 0; k < 3; k++){
+            for (int j = 0; j < 2; j++){
+                recipeProgress[k,j] = 0;
             }
         }
 
@@ -81,8 +81,8 @@ public class IngredientChecker : MonoBehaviour {
     }
 
     void CrossOffIngredient(int step, int ingredient){
-        recipeProgress[step][ingredient] = 1;
-        if(ingredient == recipeProgress[step].Length){
+        recipeProgress[step,ingredient] = 1;
+        if(ingredient == 1){
             currentStep++;
             Debug.Log("Moved to next step");
         }

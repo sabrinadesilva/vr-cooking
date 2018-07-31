@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class IngredientGenerator : MonoBehaviour {
+using UnityEngine.Networking;
+public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
     
     static int pantryIngredients = 3;
     public GameObject[] allIngredients = new GameObject[3];

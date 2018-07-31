@@ -17,7 +17,8 @@ public class DetectIngredient : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Hit the bowl");
-        GameObject ing = collision.gameObject;
+        GameObject ing = collision.collider.gameObject;
+        Debug.Log("collision game object: " + ing + "ingredient check:" + IngredientChecker.Instance);
         IngredientChecker.Instance.CheckIngredient(ing);
 
         // TODO: debug any non-food item being detected as a collision
