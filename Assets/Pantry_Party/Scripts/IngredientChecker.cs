@@ -25,6 +25,21 @@ public class IngredientChecker : MonoBehaviour {
     [HideInInspector]
     public int[][] recipeProgress;
 
+
+    private void Awake()
+    {
+        //Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
+
+
     // Later implementation: allow user to select 1 of 2 recipes
 	void Start () {
 
@@ -50,10 +65,6 @@ public class IngredientChecker : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    void RemoveIngredient(GameObject ingredient){
-        
-    }
 
     public void CheckIngredient(GameObject ingredient){
         bool found = false;

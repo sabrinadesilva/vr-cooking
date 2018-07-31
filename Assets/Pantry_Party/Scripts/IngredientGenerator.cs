@@ -12,6 +12,20 @@ public class IngredientGenerator : MonoBehaviour {
 
     public static IngredientGenerator Instance;
 
+
+    private void Awake()
+    {
+        //Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(this);
+        }
+    }
+
 	void Start () {
 
         // Select the random ingredients
@@ -27,8 +41,8 @@ public class IngredientGenerator : MonoBehaviour {
 
 	}
 
-    public void Regenerate(Transform newSpawn){
-        var newIng = (GameObject)Instantiate(allIngredients[(int)Random.Range(0, allIngredients.Length)], newSpawn.position, newSpawn.rotation);
+    public void Regenerate(Vector3 newPos, Quaternion newRot){
+        var newIng = (GameObject)Instantiate(allIngredients[(int)Random.Range(0, allIngredients.Length)], newPos, newRot);
         Debug.Log("New ingredient should have been generated");
     }
 	

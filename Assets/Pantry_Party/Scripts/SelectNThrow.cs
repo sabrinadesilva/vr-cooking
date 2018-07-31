@@ -38,20 +38,26 @@ public class SelectNThrow : MonoBehaviour {
             transform.parent = null;  // release the object
             myRb.isKinematic = false; 
             myRb.useGravity = true;
-            myRb.AddRelativeForce(30,20, 500);
+            myRb.AddRelativeForce(30, 20, 500);
             grabbed = false;
             strobe.trigger = false;
 
             // Should be changed to detect the transform it was taken from
-            // TODO: debug why this does not work
+            // TODO: Make this check where the object was taken from
             Debug.Log("Should regenerate now");
-            IngredientGenerator.Instance.Regenerate(IngredientGenerator.Instance.ing1_spawn);
+            GameObject newSpot = GameObject.FindWithTag("IngSpawn1");
+            //GameObject newSpot = new GameObject();
+            //newSpot.transform.position = oldPlace.position;
+            //newSpot.transform.rotation = oldPlace.rotation;
+            Debug.Log("Transform being passed: " + newSpot.transform);
+
+            IngredientGenerator.Instance.Regenerate(newSpot.transform.position, newSpot.transform.rotation);
         }
         else
         {   // pick it up:
             // make it move with gaze, keeping same distance from camera
-            oldPlace = transform;
             Debug.Log("oldPlace = " + oldPlace);
+            //oldPlace = transform;
             transform.parent = Camera.main.transform;  // attach object to camera
             grabbed = true;
             strobe.trigger = true;   // turn on color strobe so we know we have it
