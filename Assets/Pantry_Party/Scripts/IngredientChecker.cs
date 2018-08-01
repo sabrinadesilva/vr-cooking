@@ -17,6 +17,7 @@ public class IngredientChecker : MonoBehaviour {
     [HideInInspector]
     public int wrongIngredients = 0; // How many wrong ingredients have been thrown
                                      // Will be displayed on the recipe board
+    public GameObject checkMark;
 
     public GameObject[][] pizza = new GameObject[3][];
     public GameObject[] step1 = new GameObject[2];
@@ -24,6 +25,17 @@ public class IngredientChecker : MonoBehaviour {
     public GameObject[] step3 = new GameObject[2];
     [HideInInspector]
     public int[,] recipeProgress = new int[3,2];
+
+    //Spawn pos
+    public Transform step1_spawn1;
+    public Transform step1_spawn2;
+    public Transform step2_spawn1;
+    public Transform step2_spawn2;
+    public Transform step3_spawn1;
+    public Transform step3_spawn2;
+
+    List<GameObject> recipeBoard = new List<GameObject>(); //list of gameobjects physically on the board
+
 
 
     private void Awake()
@@ -59,6 +71,27 @@ public class IngredientChecker : MonoBehaviour {
         pizza[1] = step2;
         pizza[2] = step3;
 
+        GameObject step1_1 = Instantiate(pizza[0][0], step1_spawn1.position, step1_spawn1.rotation);
+        GameObject step1_2 = Instantiate(pizza[0][1], step1_spawn2.position, step1_spawn2.rotation);
+        GameObject step2_1 = Instantiate(pizza[1][0], step2_spawn1.position, step1_spawn1.rotation);
+        GameObject step2_2 = Instantiate(pizza[1][1], step2_spawn2.position, step1_spawn2.rotation);
+        GameObject step3_1 = Instantiate(pizza[2][0], step3_spawn1.position, step1_spawn1.rotation);
+        GameObject step3_2 = Instantiate(pizza[2][1], step3_spawn2.position, step1_spawn2.rotation);
+
+
+        recipeBoard.Add(step1_1);
+        recipeBoard.Add(step1_2);
+        recipeBoard.Add(step2_1);
+        recipeBoard.Add(step2_2);
+        recipeBoard.Add(step3_1);
+        recipeBoard.Add(step3_2);
+
+        //for (int i = 0; i < 3; i++){
+        //    for (int j = 0; j < 2; j++){
+        //        Instantiate(pizza[i][j],)
+        //    }
+        //}
+
 	}
 	
 	
@@ -68,11 +101,15 @@ public class IngredientChecker : MonoBehaviour {
 
     public void CheckIngredient(GameObject ingredient){
         bool found = false;
+        Debug.Log("Current Step: " + currentStep);
         for (int i = 0; i < pizza[currentStep].Length; i++){
             if(ingredient = pizza[currentStep][i]){
+                Debug.Log("correct ingredient at position " + i);
                 CrossOffIngredient(currentStep, i);
                 found = true;
             }
+            if (found == true)
+                break;
         }
         if(found == false){
             wrongIngredients++;
@@ -81,12 +118,32 @@ public class IngredientChecker : MonoBehaviour {
     }
 
     void CrossOffIngredient(int step, int ingredient){
+
         recipeProgress[step,ingredient] = 1;
-        if(ingredient == 1){
-            currentStep++;
-            Debug.Log("Moved to next step");
+        //bool full = false;
+        int total = 0;
+        for (int i = 0; i < 2; i++){
+            if(recipeProgress[step,i] == 1){
+                int listPos = step*2 + i; //0,0 is 0th, 0,1 is 1st, 1,0 2nd, 1,1 3rd, 2,0 4th
+
+                Instantiate(checkMark, recipeBoard[listPos].transform.position + (new Vector3(0,0,-1)), recipeBoard[listPos].transform.rotation);
+                //Debug.Log("game object to turn blue " + change.name);
+                //change.GetComponent<Material>().color = Color.blue;
+                total++;
+            }
         }
-        Debug.Log("Ingredient crossed off");
+        Debug.Log("total correct in the step so far: " + total);
+        if(total == 2){
+            currentStep++;
+            Debug.Log("Moved to step " + currentStep);
+            if(currentStep > 2){
+                currentStep = 2;
+
+                // Call the win screen/lose screen
+            }
+
+        }
+        Debug.Log("Ingredient crossed off for step " + currentStep);
         // TODO: Visually cross off the ingredient on the board
     }
 }

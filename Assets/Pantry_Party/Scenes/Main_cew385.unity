@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStep: 0
   wrongIngredients: 0
+  checkMark: {fileID: 1774514941308516, guid: c54c88b3f6e774329ba1ec2b67a58fb0, type: 2}
   step1:
   - {fileID: 1150872452001750, guid: 6091da294a6be479eaf9904de47ec909, type: 2}
   - {fileID: 1196913470227428, guid: a22bc531dcdcb4535842850599d32db3, type: 2}
@@ -268,6 +269,12 @@ MonoBehaviour:
   step3:
   - {fileID: 1150872452001750, guid: 6091da294a6be479eaf9904de47ec909, type: 2}
   - {fileID: 1554607837712518, guid: 13479d48d54244de28af40f3058877fe, type: 2}
+  step1_spawn1: {fileID: 490391358}
+  step1_spawn2: {fileID: 580255765}
+  step2_spawn1: {fileID: 1011674040}
+  step2_spawn2: {fileID: 1613875971}
+  step3_spawn1: {fileID: 802293804}
+  step3_spawn2: {fileID: 520104083}
 --- !u!1001 &168400145
 Prefab:
   m_ObjectHideFlags: 0
@@ -484,11 +491,6 @@ Prefab:
     - target: {fileID: 4027659405485382, guid: 2c019d991fcd34dd78a31b16378e77e8, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 64642431755307532, guid: 2c019d991fcd34dd78a31b16378e77e8,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c019d991fcd34dd78a31b16378e77e8, type: 2}
