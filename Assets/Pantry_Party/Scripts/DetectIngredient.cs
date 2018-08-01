@@ -21,8 +21,6 @@ public class DetectIngredient : MonoBehaviour {
             GameObject ing = collision.gameObject;
             //Debug.Log("collision game object: " + ing + "ingredient check:" + IngredientChecker.Instance);
             IngredientChecker.Instance.CheckIngredient(ing);
-
         }
-        // TODO: debug any non-food item being detected as a collision
     }
 }

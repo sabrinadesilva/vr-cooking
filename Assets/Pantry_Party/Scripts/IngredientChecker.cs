@@ -34,7 +34,7 @@ public class IngredientChecker : MonoBehaviour {
     public Transform step3_spawn1;
     public Transform step3_spawn2;
 
-    List<GameObject> recipeBoard = new List<GameObject>(); //list of gameobjects physically on the board
+    List<GameObject> recipeBoard = new List<GameObject>(); //list of gameobjects physically on the recipe board
 
 
 
@@ -54,12 +54,7 @@ public class IngredientChecker : MonoBehaviour {
 
     // Later implementation: allow user to select 1 of 2 recipes
 	void Start () {
-        //recipeProgress = 
-        // Initialize recipe step progress
-        // 0 means incomplete, 1 means complete
-        //for (int i = 0; i < 2; i++){
-        //    recipeProgress[i] = new int[2];
-        //}
+        
         for (int k = 0; k < 3; k++){
             for (int j = 0; j < 2; j++){
                 recipeProgress[k,j] = 0;
@@ -71,6 +66,7 @@ public class IngredientChecker : MonoBehaviour {
         pizza[1] = step2;
         pizza[2] = step3;
 
+        // Initialize visual recipe on the board (this is a clunky way of doing it sorry lol)
         GameObject step1_1 = Instantiate(pizza[0][0], step1_spawn1.position, step1_spawn1.rotation);
         GameObject step1_2 = Instantiate(pizza[0][1], step1_spawn2.position, step1_spawn2.rotation);
         GameObject step2_1 = Instantiate(pizza[1][0], step2_spawn1.position, step1_spawn1.rotation);
@@ -85,13 +81,6 @@ public class IngredientChecker : MonoBehaviour {
         recipeBoard.Add(step2_2);
         recipeBoard.Add(step3_1);
         recipeBoard.Add(step3_2);
-
-        //for (int i = 0; i < 3; i++){
-        //    for (int j = 0; j < 2; j++){
-        //        Instantiate(pizza[i][j],)
-        //    }
-        //}
-
 	}
 	
 	
@@ -120,15 +109,14 @@ public class IngredientChecker : MonoBehaviour {
     void CrossOffIngredient(int step, int ingredient){
 
         recipeProgress[step,ingredient] = 1;
-        //bool full = false;
+
         int total = 0;
         for (int i = 0; i < 2; i++){
             if(recipeProgress[step,i] == 1){
                 int listPos = step*2 + i; //0,0 is 0th, 0,1 is 1st, 1,0 2nd, 1,1 3rd, 2,0 4th
 
+                // TODO: Visually cross off the ingredient on the board
                 Instantiate(checkMark, recipeBoard[listPos].transform.position + (new Vector3(0,0,-1)), recipeBoard[listPos].transform.rotation);
-                //Debug.Log("game object to turn blue " + change.name);
-                //change.GetComponent<Material>().color = Color.blue;
                 total++;
             }
         }
@@ -144,6 +132,6 @@ public class IngredientChecker : MonoBehaviour {
 
         }
         Debug.Log("Ingredient crossed off for step " + currentStep);
-        // TODO: Visually cross off the ingredient on the board
+
     }
 }
