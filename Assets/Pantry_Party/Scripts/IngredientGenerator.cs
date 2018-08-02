@@ -43,7 +43,7 @@ public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
 
     public void Regenerate(Vector3 newPos, Quaternion newRot){
         var newIng = (GameObject)Instantiate(allIngredients[(int)Random.Range(0, allIngredients.Length)], newPos, newRot);
-        Debug.Log("New ingredient should have been generated");
+        //Debug.Log("New ingredient should have been generated");
     }
 	
 	void Update () {

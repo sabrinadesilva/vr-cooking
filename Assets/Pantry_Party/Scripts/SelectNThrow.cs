@@ -7,20 +7,18 @@ using UnityEngine;
 // Allows user to click once to select, then click again to throw
 
 public class SelectNThrow : MonoBehaviour {
-
-    public bool grabbed = false;  // have i been picked up, or not?
+    [HideInInspector]
+    public bool grabbed = false;
     Rigidbody myRb;
     StrobeSelect strobe;
     private Transform oldPlace;
 
-    // Use this for initialization
     void Start()
     {
         myRb = GetComponent<Rigidbody>();
         strobe = GetComponent<StrobeSelect>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -41,31 +39,14 @@ public class SelectNThrow : MonoBehaviour {
             myRb.AddRelativeForce(30, 20, 500);
             grabbed = false;
             strobe.trigger = false;
-
-            // Should be changed to detect the transform it was taken from
-            // TODO: Make this check where the object was taken from
-            Debug.Log("Should regenerate now");
-            //GameObject newSpot = GameObject.FindWithTag("IngSpawn1");
-            //GameObject newSpot = new GameObject();
-            //newSpot.transform.position = oldPlace.position;
-            //newSpot.transform.rotation = oldPlace.rotation;
-            //Debug.Log("Transform being passed: " + newSpot.transform);
-
-            //IngredientGenerator.Instance.Regenerate(newSpot.transform.position, newSpot.transform.rotation);
         }
         else
-        {   // pick it up:
-            // make it move with gaze, keeping same distance from camera
-            //Debug.Log("oldPlace = " + oldPlace);
-            //oldPlace = transform;
-            //GetComponent<Rigidbody>().detectCollisions = false;
+        {   
             IngredientGenerator.Instance.Regenerate(transform.position, transform.rotation);
             transform.parent = Camera.main.transform;  // attach object to camera
             grabbed = true;
             strobe.trigger = true;   // turn on color strobe so we know we have it
             myRb.isKinematic = true; //  .useGravity = false;
-            //GetComponent<Rigidbody>().detectCollisions = true;
-
         }
     }
 }

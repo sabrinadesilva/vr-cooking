@@ -14,13 +14,13 @@ public class DetectIngredient : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Hit the bowl");
-        GameObject ing = collision.collider.gameObject;
-        Debug.Log("collision game object: " + ing + "ingredient check:" + IngredientChecker.Instance);
-        IngredientChecker.Instance.CheckIngredient(ing);
-
-        // TODO: debug any non-food item being detected as a collision
+        if(collision.gameObject.tag == "Ingredient"){
+            Debug.Log(collision.gameObject.name + " Hit the bowl");
+            GameObject ing = collision.gameObject;
+            //Debug.Log("collision game object: " + ing + "ingredient check:" + IngredientChecker.Instance);
+            IngredientChecker.Instance.CheckIngredient(ing);
+        }
     }
 }
