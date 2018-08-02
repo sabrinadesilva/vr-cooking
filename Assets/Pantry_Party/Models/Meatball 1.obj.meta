@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68197d79a3c2046e480369713246789f
+guid: 7fad512c4a2a84770a8dc43a8f73d362
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -151,79 +151,9 @@ ModelImporter:
     400142: Sphere144
     400144: Sphere145
     400146: Sphere146
-    2100000: Sphere074Mat
-    2100002: Sphere075Mat
-    2100004: Sphere076Mat
-    2100006: Sphere077Mat
-    2100008: Sphere078Mat
-    2100010: Sphere079Mat
-    2100012: Sphere080Mat
-    2100014: Sphere081Mat
-    2100016: Sphere082Mat
-    2100018: Sphere083Mat
-    2100020: Sphere084Mat
-    2100022: Sphere085Mat
-    2100024: Sphere086Mat
-    2100026: Sphere087Mat
-    2100028: Sphere088Mat
-    2100030: Sphere089Mat
-    2100032: Sphere090Mat
-    2100034: Sphere091Mat
-    2100036: Sphere092Mat
-    2100038: Sphere093Mat
-    2100040: Sphere094Mat
-    2100042: Sphere095Mat
-    2100044: Sphere096Mat
-    2100046: Sphere097Mat
-    2100048: Sphere098Mat
-    2100050: Sphere099Mat
-    2100052: Sphere100Mat
-    2100054: Sphere101Mat
-    2100056: Sphere102Mat
-    2100058: Sphere103Mat
-    2100060: Sphere104Mat
-    2100062: Sphere105Mat
-    2100064: Sphere106Mat
-    2100066: Sphere107Mat
-    2100068: Sphere108Mat
-    2100070: Sphere109Mat
-    2100072: Sphere110Mat
-    2100074: Sphere111Mat
-    2100076: Sphere112Mat
-    2100078: Sphere113Mat
-    2100080: Sphere114Mat
-    2100082: Sphere115Mat
-    2100084: Sphere116Mat
-    2100086: Sphere117Mat
-    2100088: Sphere118Mat
-    2100090: Sphere119Mat
-    2100092: Sphere120Mat
-    2100094: Sphere121Mat
-    2100096: Sphere122Mat
-    2100098: Sphere123Mat
-    2100100: Sphere124Mat
-    2100102: Sphere125Mat
-    2100104: Sphere126Mat
-    2100106: Sphere127Mat
-    2100108: Sphere128Mat
-    2100110: Sphere129Mat
-    2100112: Sphere130Mat
-    2100114: Sphere131Mat
-    2100116: Sphere132Mat
-    2100118: Sphere133Mat
-    2100120: Sphere134Mat
-    2100122: Sphere135Mat
-    2100124: Sphere136Mat
-    2100126: Sphere137Mat
-    2100128: Sphere138Mat
-    2100130: Sphere139Mat
-    2100132: Sphere140Mat
-    2100134: Sphere141Mat
-    2100136: Sphere142Mat
-    2100138: Sphere143Mat
-    2100140: Sphere144Mat
-    2100142: Sphere145Mat
-    2100144: Sphere146Mat
+    2100000: 02___Default
+    2100002: 03___Default
+    2100004: _crayfishdiffuse
     2300000: Sphere074
     2300002: Sphere075
     2300004: Sphere076

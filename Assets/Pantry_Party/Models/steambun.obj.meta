@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: 924b1e39025af4cf39187ddc1c6926be
+guid: 4e7611cfff25d45d5bb90507d6627840
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Box20179
+    100000: default
     100002: //RootNode
-    400000: Box20179
+    400000: default
     400002: //RootNode
-    2100000: Box20179Mat
-    2300000: Box20179
-    3300000: Box20179
-    4300000: Box20179
+    2100000: lambert2SG
+    2300000: default
+    3300000: default
+    4300000: default
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

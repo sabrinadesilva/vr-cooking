@@ -19,7 +19,6 @@ public class DetectIngredient : MonoBehaviour {
         if(collision.gameObject.tag == "Ingredient"){
             Debug.Log(collision.gameObject.name + " Hit the bowl");
             GameObject ing = collision.gameObject;
-            //Debug.Log("collision game object: " + ing + "ingredient check:" + IngredientChecker.Instance);
             IngredientChecker.Instance.CheckIngredient(ing);
         }
     }

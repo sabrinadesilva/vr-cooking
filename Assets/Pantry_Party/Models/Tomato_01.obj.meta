@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 72cfc8b17915a43eb96bd3c81f2e002e
+guid: 23c556add69d74b09b813cea73b2acbc
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: default
+    100000: pasted__pSphere33_group
     100002: //RootNode
-    400000: default
+    400000: pasted__pSphere33_group
     400002: //RootNode
-    2100000: defaultMat
-    2300000: default
-    3300000: default
-    4300000: default
-    2186277476908879412: ImportLogs
+    2100000: blinn7SG
+    2100002: blinn9SG
+    2300000: pasted__pSphere33_group
+    3300000: pasted__pSphere33_group
+    4300000: pasted__pSphere33_group
   externalObjects: {}
   materials:
     importMaterials: 1

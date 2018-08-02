@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 // Attached to each of the ingredient prefabs
 // Used in tandem with StrobeSelect script
 // Allows user to click once to select, then click again to throw
 
-public class SelectNThrow : MonoBehaviour {
+public class SelectNThrow : NetworkBehaviour {
     [HideInInspector]
     public bool grabbed = false;
     Rigidbody myRb;
@@ -21,7 +22,9 @@ public class SelectNThrow : MonoBehaviour {
 
     void Update()
     {
-
+        if(!isLocalPlayer){
+            return;
+        }
     }
 
     /*
@@ -29,6 +32,7 @@ public class SelectNThrow : MonoBehaviour {
      * Handle the event when the user clicks the button while 
      * gaze is on this object.  Toggle grabbed state.
      */
+
     public void PickupOrDrop()
     {
         if (grabbed)
@@ -41,8 +45,14 @@ public class SelectNThrow : MonoBehaviour {
             strobe.trigger = false;
         }
         else
-        {   
-            IngredientGenerator.Instance.Regenerate(transform.position, transform.rotation);
+        {
+            foreach(var go in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (go.GetComponent<IngredientGenerator>().isLocalPlayer ) {
+                    go.GetComponent<IngredientGenerator>().Regenerate(transform.position, transform.rotation);
+                }
+            }
+
             transform.parent = Camera.main.transform;  // attach object to camera
             grabbed = true;
             strobe.trigger = true;   // turn on color strobe so we know we have it

@@ -10,43 +10,38 @@ public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
     public Transform ing2_spawn;
     public Transform ing3_spawn;
 
-    public static IngredientGenerator Instance;
+    public override void  OnStartLocalPlayer () {
+        base.OnStartLocalPlayer();
+        CmdNetworkSpawn();
+	}
 
-
-    private void Awake()
-    {
-        //Singleton
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(this);
-        }
-    }
-
-	void Start () {
-
-        // Select the random ingredients
+    [Command]
+    public void CmdNetworkSpawn(){
+        
         GameObject[] pantry = new GameObject[pantryIngredients];
-        for (int i = 0; i < pantry.Length; i++){
+        for (int i = 0; i < pantry.Length; i++)
+        {
             pantry[i] = allIngredients[(int)Random.Range(0, allIngredients.Length)];
         }
 
-        // Spawn them at the spawn points
         var ing1 = (GameObject)Instantiate(pantry[0], ing1_spawn.position, ing1_spawn.rotation);
         var ing2 = (GameObject)Instantiate(pantry[1], ing2_spawn.position, ing2_spawn.rotation);
         var ing3 = (GameObject)Instantiate(pantry[2], ing3_spawn.position, ing3_spawn.rotation);
 
-	}
+        NetworkServer.Spawn(ing1);
+        NetworkServer.Spawn(ing2);
+        NetworkServer.Spawn(ing3);
+    }
 
     public void Regenerate(Vector3 newPos, Quaternion newRot){
         var newIng = (GameObject)Instantiate(allIngredients[(int)Random.Range(0, allIngredients.Length)], newPos, newRot);
-        //Debug.Log("New ingredient should have been generated");
+        NetworkServer.Spawn(newIng);
+
     }
 	
 	void Update () {
-		
+        if(!isLocalPlayer){
+            return;
+        }
 	}
 }

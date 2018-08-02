@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: e993d35740cef452ab4da21602fdf608
+guid: 8ffef0c1b30114e328dd3fabd634916e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: pasted__pSphere33_group
+    100000: Box20179
     100002: //RootNode
-    400000: pasted__pSphere33_group
+    400000: Box20179
     400002: //RootNode
-    2100000: pasted__pSphere33_groupMat
-    2300000: pasted__pSphere33_group
-    3300000: pasted__pSphere33_group
-    4300000: pasted__pSphere33_group
+    2100000: _crayfishdiffuse
+    2300000: Box20179
+    3300000: Box20179
+    4300000: Box20179
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -46,6 +46,9 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
 
     List<GameObject> recipeBoard = new List<GameObject>(); //list of gameobjects physically on the recipe board
 
+    public GameObject scene1;
+    public GameObject scene2;
+
     private void Awake()
     {
         //Singleton
@@ -62,7 +65,8 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
 
     // Later implementation: allow user to select 1 of 2 recipes
 	void Start () {
-        
+
+        scene2.active = false;
         for (int k = 0; k < 3; k++){
             for (int j = 0; j < 2; j++){
                 recipeProgress[k,j] = 0;
@@ -143,6 +147,9 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
                 currentStep = 2;
 
                 Instantiate(confetti, confetti.transform.position, confetti.transform.rotation);
+                scene1.active = false;
+                scene2.active = true;
+
                 // Call the win screen/lose screen
             }
 

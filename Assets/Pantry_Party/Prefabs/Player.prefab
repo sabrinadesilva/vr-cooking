@@ -52,9 +52,6 @@ GameObject:
   - component: {fileID: 33315703762838530}
   - component: {fileID: 23736153889279198}
   - component: {fileID: 65954206661327816}
-  - component: {fileID: 114017753686379266}
-  - component: {fileID: 114493542172271816}
-  - component: {fileID: 114554991914431746}
   m_Layer: 0
   m_Name: Pantry
   m_TagString: Untagged
@@ -91,9 +88,10 @@ GameObject:
   - component: {fileID: 114861745363862232}
   - component: {fileID: 114396542213470390}
   - component: {fileID: 114618988015216946}
+  - component: {fileID: 114461036804182318}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1586418075125192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6, z: -31}
+  m_LocalPosition: {x: 3.57, y: 6, z: -40.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4488034212164194}
@@ -292,24 +290,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114017753686379266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1163489113878570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114c577c6cfc1415898e4bc6a0fb50e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allIngredients:
-  - {fileID: 1150872452001750, guid: 6091da294a6be479eaf9904de47ec909, type: 2}
-  - {fileID: 1554607837712518, guid: 13479d48d54244de28af40f3058877fe, type: 2}
-  - {fileID: 1196913470227428, guid: a22bc531dcdcb4535842850599d32db3, type: 2}
-  ing1_spawn: {fileID: 4233999738839034}
-  ing2_spawn: {fileID: 4886546669157980}
-  ing3_spawn: {fileID: 4624101887659918}
 --- !u!114 &114396542213470390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -331,59 +311,24 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &114493542172271816
+--- !u!114 &114461036804182318
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1163489113878570}
+  m_GameObject: {fileID: 1586418075125192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 114c577c6cfc1415898e4bc6a0fb50e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 245
-    i1: 31
-    i2: 56
-    i3: 68
-    i4: 217
-    i5: 121
-    i6: 4
-    i7: 30
-    i8: 171
-    i9: 105
-    i10: 79
-    i11: 161
-    i12: 242
-    i13: 225
-    i14: 10
-    i15: 34
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &114554991914431746
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1163489113878570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  allIngredients:
+  - {fileID: 1150872452001750, guid: 6091da294a6be479eaf9904de47ec909, type: 2}
+  - {fileID: 1554607837712518, guid: 13479d48d54244de28af40f3058877fe, type: 2}
+  - {fileID: 1196913470227428, guid: a22bc531dcdcb4535842850599d32db3, type: 2}
+  ing1_spawn: {fileID: 4233999738839034}
+  ing2_spawn: {fileID: 4886546669157980}
+  ing3_spawn: {fileID: 4624101887659918}
 --- !u!114 &114618988015216946
 MonoBehaviour:
   m_ObjectHideFlags: 1
