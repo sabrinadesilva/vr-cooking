@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace A07Examples
-{
+
     public class Billboard : MonoBehaviour
     {
-        public Transform ShootLocation;
+        private Transform ShootLocation;
+
+
+        void Start()
+        {
+            ShootLocation = GameObject.Find("ShootLoc").transform;
+            //ShootLocation
+        }
+
         void Update()
         {
-            transform.LookAt(ShootLocation);
+        transform.LookAt(ShootLocation);
+
         }
     }
-}

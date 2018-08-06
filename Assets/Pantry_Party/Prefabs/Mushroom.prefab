@@ -377,3 +377,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+  ShootLocation: {fileID: 0}

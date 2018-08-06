@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+  ShootLocation: {fileID: 0}
 --- !u!114 &114932296154471844
 MonoBehaviour:
   m_ObjectHideFlags: 1

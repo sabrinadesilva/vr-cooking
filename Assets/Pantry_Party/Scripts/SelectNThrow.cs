@@ -14,12 +14,14 @@ public class SelectNThrow : NetworkBehaviour {
     Rigidbody myRb;
     StrobeSelect strobe;
     private Transform oldPlace;
+    private Transform ShootLocation;
 
     void Start()
     {
         Debug.Log("select n throw started");
         myRb = GetComponent<Rigidbody>();
         strobe = GetComponent<StrobeSelect>();
+        ShootLocation = GameObject.Find("ShootLoc").transform;
     }
 
     void Update()
@@ -41,8 +43,10 @@ public class SelectNThrow : NetworkBehaviour {
         {  // now drop it
             Debug.Log("Should throw now");
             transform.parent = null;  // release the object
+            transform.LookAt(ShootLocation);
             myRb.isKinematic = false; 
             myRb.useGravity = true;
+
             myRb.AddRelativeForce(30, 20, 500);
             grabbed = false;
             strobe.trigger = false;
