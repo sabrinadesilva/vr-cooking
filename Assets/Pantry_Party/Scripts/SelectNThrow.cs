@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.EventSystems;
 
 // Attached to each of the ingredient prefabs
 // Used in tandem with StrobeSelect script
@@ -16,6 +17,7 @@ public class SelectNThrow : NetworkBehaviour {
 
     void Start()
     {
+        Debug.Log("select n throw started");
         myRb = GetComponent<Rigidbody>();
         strobe = GetComponent<StrobeSelect>();
     }
@@ -37,6 +39,7 @@ public class SelectNThrow : NetworkBehaviour {
     {
         if (grabbed)
         {  // now drop it
+            Debug.Log("Should throw now");
             transform.parent = null;  // release the object
             myRb.isKinematic = false; 
             myRb.useGravity = true;
@@ -52,7 +55,7 @@ public class SelectNThrow : NetworkBehaviour {
                     go.GetComponent<IngredientGenerator>().Regenerate(transform.position, transform.rotation);
                 }
             }
-
+            Debug.Log("Should pick up now");
             transform.parent = Camera.main.transform;  // attach object to camera
             grabbed = true;
             strobe.trigger = true;   // turn on color strobe so we know we have it

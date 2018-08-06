@@ -5,10 +5,10 @@ namespace A07Examples
 {
     public class Billboard : MonoBehaviour
     {
-
+        public Transform ShootLocation;
         void Update()
         {
-            transform.LookAt(Camera.main.transform);
+            transform.LookAt(ShootLocation);
         }
     }
 }

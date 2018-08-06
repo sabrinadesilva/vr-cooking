@@ -5,10 +5,13 @@ using UnityEngine.Networking;
 public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
     
     static int pantryIngredients = 3;
-    public GameObject[] allIngredients = new GameObject[3];
+    //public int numIngredients = 8;
+    public GameObject[] allIngredients = new GameObject[8];
     public Transform ing1_spawn;
     public Transform ing2_spawn;
     public Transform ing3_spawn;
+
+
 
     public override void  OnStartLocalPlayer () {
         base.OnStartLocalPlayer();
@@ -28,14 +31,21 @@ public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
         var ing2 = (GameObject)Instantiate(pantry[1], ing2_spawn.position, ing2_spawn.rotation);
         var ing3 = (GameObject)Instantiate(pantry[2], ing3_spawn.position, ing3_spawn.rotation);
 
-        NetworkServer.Spawn(ing1);
-        NetworkServer.Spawn(ing2);
-        NetworkServer.Spawn(ing3);
+        if (NetworkServer.active)
+        {
+            NetworkServer.Spawn(ing1);
+            NetworkServer.Spawn(ing2);
+            NetworkServer.Spawn(ing3);
+        }
     }
 
     public void Regenerate(Vector3 newPos, Quaternion newRot){
         var newIng = (GameObject)Instantiate(allIngredients[(int)Random.Range(0, allIngredients.Length)], newPos, newRot);
-        NetworkServer.Spawn(newIng);
+
+        if (NetworkServer.active)
+        {
+            NetworkServer.Spawn(newIng);
+        }
 
     }
 	

@@ -304,7 +304,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: fb872f74652c74d308edfd316be28f6d, type: 2}
+  - {fileID: 2100000, guid: 535aab4f3766f4ace95aeec634c2902f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -428,6 +428,11 @@ MonoBehaviour:
   - {fileID: 1150872452001750, guid: 6091da294a6be479eaf9904de47ec909, type: 2}
   - {fileID: 1554607837712518, guid: 13479d48d54244de28af40f3058877fe, type: 2}
   - {fileID: 1196913470227428, guid: a22bc531dcdcb4535842850599d32db3, type: 2}
+  - {fileID: 1189195198911000, guid: 227207d057b0d44ce8a6b8fb9f5c7b48, type: 2}
+  - {fileID: 1355992653710012, guid: 7e7d6384a07e44f6d94fe47b66b1f7d2, type: 2}
+  - {fileID: 1385731367520572, guid: 75c03a4d26f344542b20250c69ec9915, type: 2}
+  - {fileID: 1974730773923656, guid: 63e21d661a2ae489fa8d7720f5f85eb4, type: 2}
+  - {fileID: 1124122653084540, guid: e056d3b44d42c4cee8018adf1b866549, type: 2}
   ing1_spawn: {fileID: 4233999738839034}
   ing2_spawn: {fileID: 4886546669157980}
   ing3_spawn: {fileID: 4624101887659918}
