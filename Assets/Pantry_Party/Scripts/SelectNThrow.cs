@@ -49,7 +49,7 @@ public class SelectNThrow : NetworkBehaviour {
 
             myRb.AddRelativeForce(30, 20, 500);
             grabbed = false;
-            strobe.trigger = false;
+            //strobe.trigger = false;
         }
         else
         {
@@ -62,7 +62,7 @@ public class SelectNThrow : NetworkBehaviour {
             Debug.Log("Should pick up now");
             transform.parent = Camera.main.transform;  // attach object to camera
             grabbed = true;
-            strobe.trigger = true;   // turn on color strobe so we know we have it
+            //strobe.trigger = true;   // turn on color strobe so we know we have it
             myRb.isKinematic = true; //  .useGravity = false;
         }
     }

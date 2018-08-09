@@ -6,7 +6,7 @@ public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
     
     static int pantryIngredients = 3;
     //public int numIngredients = 8;
-    public GameObject[] allIngredients = new GameObject[8];
+    public GameObject[] allIngredients = new GameObject[11];
     public Transform ing1_spawn;
     public Transform ing2_spawn;
     public Transform ing3_spawn;
@@ -37,16 +37,21 @@ public class IngredientGenerator : NetworkBehaviour{//MonoBehaviour {
             NetworkServer.Spawn(ing2);
             NetworkServer.Spawn(ing3);
         }
+       
     }
 
     public void Regenerate(Vector3 newPos, Quaternion newRot){
         var newIng = (GameObject)Instantiate(allIngredients[(int)Random.Range(0, allIngredients.Length)], newPos, newRot);
 
+        CmdRegenerate(newIng);
+
+    }
+    [Command]
+    public void CmdRegenerate(GameObject newIng){
         if (NetworkServer.active)
         {
             NetworkServer.Spawn(newIng);
         }
-
     }
 	
 	void Update () {

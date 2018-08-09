@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class CustomNetworkDiscovery : NetworkDiscovery {
-    private bool _receivedBradcast = false;
+
+    private bool _receivedBroadcast = false;
 
 	private void Start()
 	{
@@ -13,9 +14,9 @@ public class CustomNetworkDiscovery : NetworkDiscovery {
 
     public override void OnReceivedBroadcast(string fromAddress, string data)
     {
-        if (!_receivedBradcast)
+        if (!_receivedBroadcast)
         {
-            _receivedBradcast = true;
+            _receivedBroadcast = true;
             base.OnReceivedBroadcast(fromAddress, data);
             Debug.Log("FromAddress: " + fromAddress + "  Data: " + data);
             string[] addressSplit  = fromAddress.Split(':');
@@ -31,6 +32,8 @@ public class CustomNetworkDiscovery : NetworkDiscovery {
     }
 
     public void StartAsHost () {
+
+        Debug.Log("in startAsHost");
         NetworkManager.singleton.StartHost();
         StartAsServer();
     }

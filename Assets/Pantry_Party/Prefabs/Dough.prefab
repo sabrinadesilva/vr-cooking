@@ -266,7 +266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
-  ShootLocation: {fileID: 0}
 --- !u!114 &114764351105673264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,7 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f77244114d98481392bbfdbc77fc46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootLocation: {fileID: 0}
 --- !u!114 &114955202310438564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,7 +297,7 @@ SphereCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355992653710012}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0823496c4cfbb4112bb5113eed86da40, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

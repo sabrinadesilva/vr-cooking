@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour
 {
+    
     public override void OnStartLocalPlayer()
     {
         Camera.main.transform.parent.transform.position = transform.position + Vector3.up;
@@ -10,6 +11,7 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
+        //time += Time.deltaTime;
         if (!isLocalPlayer){
             return;
         }
