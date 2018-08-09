@@ -151,16 +151,35 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
             recipeBoard.Add(step3_1);
             recipeBoard.Add(step3_2);
 
+        if (NetworkServer.active == true)
+        {
             NetworkServer.Spawn(step1_1);
             NetworkServer.Spawn(step1_2);
             NetworkServer.Spawn(step2_1);
             NetworkServer.Spawn(step2_2);
             NetworkServer.Spawn(step3_1);
             NetworkServer.Spawn(step3_2);
+        }
+        //GameObject strikeHolder = new GameObject();
+        //Canvas holderCanvas = strikeHolder.AddComponent<Canvas>() as Canvas;
+        //holderCanvas = strikesPrefab.GetComponent<Canvas>();
+        //Text holderText = strikeHolder.AddComponent<Text>() as Text;
+        //holderText.text = strikesPrefab.GetComponent<Text>().text;
+        //holderText.transform.SetParent(holderCanvas.transform);
+        //NetworkServer.Spawn(Instantiate(strikeHolder));
 
         //}
         //CmdSpawnStrikes();
 	}
+
+    public void OnStartServer(){
+        
+    }
+
+    [Command]
+    public void CmdUpdateText(GameObject strikeHolder){
+        NetworkServer.Spawn(strikeHolder);
+    }
 
     //public void CmdSpawnStrikes(){
     //    NetworkServer.Spawn(Instantiate(strikes));
@@ -218,9 +237,8 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
     }
 
     [Command]
-    public void CmdAddStrike(){
-        wrongIngredients++;
-        strikes.text = "" + wrongIngredients;
+    public void CmdAddStrike(GameObject strikes){
+        NetworkServer.Spawn(strikes);
     }
 
 
@@ -241,7 +259,14 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
                 
                 int listPos = step * 2 + i; //0,0 is 0th, 0,1 is 1st, 1,0 2nd, 1,1 3rd, 2,0 4th
                 GameObject newCheck = Instantiate(checkMark, recipeBoard[listPos].transform.position + (new Vector3(0,0,-1)), recipeBoard[listPos].transform.rotation);
-                NetworkServer.Spawn(newCheck);
+
+                foreach (var go in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (go.GetComponent<IngredientGenerator>().isLocalPlayer)
+                    {
+                        go.GetComponent<IngredientGenerator>().AddChecks(newCheck);
+                    }
+                }
                 total++;
             }
         }
@@ -261,6 +286,11 @@ public class IngredientChecker : NetworkBehaviour// Extend this or MonoBehaviour
                 // TODO: make the pie appear instead of pizza
             }
         }
+    }
+
+    [Command]
+    public void CmdSpawnCheck(GameObject newCheck){
+        NetworkServer.Spawn(newCheck);
     }
 
     public void destroyForEnd(){

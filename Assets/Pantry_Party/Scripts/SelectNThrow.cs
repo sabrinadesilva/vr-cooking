@@ -11,14 +11,14 @@ using UnityEngine.EventSystems;
 public class SelectNThrow : NetworkBehaviour {
     [HideInInspector]
     public bool grabbed = false;
-    Rigidbody myRb;
+    [HideInInspector]
+    public Rigidbody myRb;
     StrobeSelect strobe;
     private Transform oldPlace;
     private Transform ShootLocation;
 
     void Start()
     {
-        Debug.Log("select n throw started");
         myRb = GetComponent<Rigidbody>();
         strobe = GetComponent<StrobeSelect>();
         ShootLocation = GameObject.Find("ShootLoc").transform;
@@ -39,17 +39,22 @@ public class SelectNThrow : NetworkBehaviour {
 
     public void PickupOrDrop()
     {
+        if(!isServer){
+            return;
+        }
+
         if (grabbed)
         {  // now drop it
             Debug.Log("Should throw now");
+
             transform.parent = null;  // release the object
             transform.LookAt(ShootLocation);
             myRb.isKinematic = false; 
             myRb.useGravity = true;
-
             myRb.AddRelativeForce(30, 20, 500);
+
             grabbed = false;
-            //strobe.trigger = false;
+
         }
         else
         {
