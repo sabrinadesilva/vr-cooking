@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114298251567085638}
   - component: {fileID: 114224107090615000}
   - component: {fileID: 114100452795794990}
+  - component: {fileID: 114307674723265988}
   m_Layer: 0
   m_Name: Temp_Ing_2
   m_TagString: Ingredient
@@ -213,7 +214,7 @@ MonoBehaviour:
     i14: 119
     i15: 254
   m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114298251567085638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,3 +227,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabbed: 0
+--- !u!114 &114307674723265988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554607837712518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f77244114d98481392bbfdbc77fc46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
